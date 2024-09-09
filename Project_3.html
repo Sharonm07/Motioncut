@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Product Details Styling */
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            max-height: 500px;
+        }
+
+        .product-details {
+            max-width: 50%;
+            margin-left: 20px;
+        }
+
+        .product-details h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart {
+            background-color: #e67e22;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #d35400;
+        }
+
+        /* Reviews Section Styling */
+        .reviews-section {
+            margin: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .reviews-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .review {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        /* Related Products Section */
+        .related-products {
+            margin: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-details {
+                max-width: 100%;
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Product Details Section -->
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRlJ39Q_CGCsKyROhj4ltuQS73IuzTP-o2l4EGbICj76-WoDQlT8IIG2MFrePA82mxEuwT8VYumP4-Fb0qUfykliMxeOEdnveiH44UK9Z_o&usqp=CAE" alt="Product Image 1" width="500px">
+        </div>
+        <div class="product-details">
+            <h1>Product Name 1</h1>
+            <p class="price">$99.99</p>
+            <p class="description">This is a short description of the product.</p>
+            <button class="add-to-cart" onclick="addToCart('Product Name 1', 99.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT9JRAV_Tr4KVwcdzPabV8Oj7rVN7laYf_9hjz80XyKSQA0kyLcq1xQYBDO8uv_rZwdB2ZONbx2KlulX251kMzMnei4F1_9BgfTjU8RaBVDEj-0E0s7D_zH&usqp=CAE" alt="Product Image 2" width="500px">
+        </div>
+        <div class="product-details">
+            <h1>Product Name 2</h1>
+            <p class="price">$59.99</p>
+            <p class="description">This is a short description of the product.</p>
+            <button class="add-to-cart" onclick="addToCart('Product Name 2', 59.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSSxFs0pIHoOK-MLkYkWj-SGx24RvTd-j6NGpKrrSam6kYIDyMq28-UUTHm8HDUpSxRL0geWB4CDCTxeXS3BYz4Iu_VTkX0ULVYDjRkGqx5&usqp=CAE" alt="Product Image 3" width="500px">
+        </div>
+        <div class="product-details">
+            <h1>Product Name 3</h1>
+            <p class="price">$79.99</p>
+            <p class="description">This is a short description of the product.</p>
+            <button class="add-to-cart" onclick="addToCart('Product Name 3', 79.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <div class="reviews-section">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <p>Review 1: Great product!</p>
+            <p>Rating: ★★★★☆</p>
+        </div>
+        <div class="review">
+            <p>Review 2: Very satisfied.</p>
+            <p>Rating: ★★★★★</p>
+        </div>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="related-products">
+        <h2>Related Products</h2>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSVvCpgkKkCUCGBc1LlVgO8tkTLxhzWWKTSRClExNJd8ierOLoUQpiAhA-Li9qLNZ3BKDxMMNcqOjNLXYSOTI3Q9MEd5Z19BOjGtMdSY7M7&usqp=CAE" alt="Related Product 1">
+            <p>Product Name 1</p>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTLacxiuyA8G_nHzWXZrT9b9DQVr9ADdTIfimDZRxUoKpEfJe-v1T349PXcad1sLxCdWwgjCjmn3_aIszmB522m8dngbqTDiGqULDfCMTY&usqp=CAE" alt="Related Product 2">
+            <p>Product Name 2</p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Add to Cart -->
+    <script>
+        let cartCount = 0;
+
+        function addToCart(productName, productPrice) {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+            alert(productName + ' has been added to your cart at $' + productPrice + '.');
+        }
+    </script>
+</body>
+</html>
